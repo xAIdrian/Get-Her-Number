@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CuteApp</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="krono"></string>
+    <string name="service">That\'s not surprising.  He\'s a good guy.  We used to serve together in the unforgiving jungles of Cambodia.
+        I once saw him save a basket of puppies during an ambush.\n
+        I\'m sure you\'re wondering what the hell of this whole thing is\n\n
+        Well, you\'re about to find out.</string>
+</resources>
