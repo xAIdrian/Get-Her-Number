@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="androidtitancom.cuteapp.CuteActivity">
+
+    <include layout="@layout/activity_cute_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="@dimen/double_fab"
+            android:layout_height="@dimen/double_fab"
+            android:layout_gravity="center"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_heart"
+            android:backgroundTint="@android:color/white"
+            android:transitionName="@string/fab_activity_transition"/>
+
+</android.support.design.widget.CoordinatorLayout>

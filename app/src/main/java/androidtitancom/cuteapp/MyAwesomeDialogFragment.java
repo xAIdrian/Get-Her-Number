@@ -1,11 +1,9 @@
 package androidtitancom.cuteapp;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.telephony.SmsManager;
 import android.text.InputType;
@@ -19,8 +17,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileWriter;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import androidtitancom.cuteapp.java.JavaEntranceActivity;
+
 
 public class MyAwesomeDialogFragment extends DialogFragment {
 
@@ -28,13 +26,13 @@ public class MyAwesomeDialogFragment extends DialogFragment {
     String cellNumber;
     String textMessage;
 
-    @Bind(R.id.input_name)
+    //@Bind(R.id.input_name)
     EditText text1;
 
-    @Bind(R.id.input_cell)
+    //@Bind(R.id.input_cell)
     EditText text2;
 
-    @Bind(R.id.sendBtn)
+    //@Bind(R.id.sendBtn)
     TextView sender;
 
 
@@ -64,7 +62,7 @@ public class MyAwesomeDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_dialog, container, false);
-        ButterKnife.bind(this, v);
+        //ButterKnife.bind(this, v);
 
         text2.setInputType(InputType.TYPE_CLASS_NUMBER);
 
@@ -97,7 +95,7 @@ public class MyAwesomeDialogFragment extends DialogFragment {
                         writer.close();
                         Toast.makeText(getActivity(), "Success!", Toast.LENGTH_LONG).show();
 
-                        startActivity(new Intent(getActivity(), MainActivity.class));
+                        startActivity(new Intent(getActivity(), JavaEntranceActivity.class));
                         getActivity().finish();
 
                     } catch (Exception e) {

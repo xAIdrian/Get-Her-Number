@@ -1,4 +1,4 @@
-package androidtitancom.cuteapp;
+package androidtitancom.cuteapp.java;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -6,7 +6,6 @@ import android.support.v4.app.*;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,28 +26,28 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 
 import java.util.Calendar;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import androidtitancom.cuteapp.MyAwesomeDialogFragment;
+import androidtitancom.cuteapp.R;
 
 public class HowsHeDoingActivity extends AppCompatActivity {
 
-    @Bind(R.id.rootLayout)
+    //@Bind(R.id.rootLayout)
     RelativeLayout rootLayout;
 
-    @Bind(R.id.heartImage)
+    //@Bind(R.id.heartImage)
     ImageView heartImage;
 
-    @Bind(R.id.cuteTitleText)
+    //@Bind(R.id.cuteTitleText)
     TextView textTitle;
-    @Bind(R.id.questionTitle)
+    //@Bind(R.id.questionTitle)
     TextView titleView;
-    @Bind(R.id.titleOne)
+    //@Bind(R.id.titleOne)
     TextView chancer;
-    @Bind(R.id.titleTwo)
+    //@Bind(R.id.titleTwo)
     TextView noChancer;
-    @Bind(R.id.revealTitleText)
+    //@Bind(R.id.revealTitleText)
             TextView revealText;
-    @Bind(R.id.secondRevealLayout)
+    //@Bind(R.id.secondRevealLayout)
             RelativeLayout secondRevealLayout;
 
     Animation revealTextFade;
@@ -65,7 +64,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_howshedoing);
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
 
         handler = new Handler();
 

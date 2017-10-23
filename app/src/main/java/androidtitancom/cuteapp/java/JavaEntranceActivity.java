@@ -1,4 +1,4 @@
-package androidtitancom.cuteapp;
+package androidtitancom.cuteapp.java;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import androidtitancom.cuteapp.R;
 
-public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.fab)
+public class JavaEntranceActivity extends AppCompatActivity {
+
+    //@Bind(R.id.fab)
     FloatingActionButton fab;
-    @Bind(R.id.fadeView)
+    //@Bind(R.id.fadeView)
     View circleView;
 
     Animation pulse;
@@ -24,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_java_entrance);
+        //ButterKnife.bind(this);
 
-        getSupportActionBar().setTitle(";)");
+        getSupportActionBar().setTitle("");
+
 
         pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
         final Animation pulseNfade = AnimationUtils.loadAnimation(this, R.anim.fading_scale);
@@ -55,14 +56,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        fab.setOnClickListener(v -> {
 
-                Intent intent = new Intent(MainActivity.this, HowsHeDoingActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(JavaEntranceActivity.this, HowsHeDoingActivity.class);
+            startActivity(intent);
 
-            }
         });
 
     }
