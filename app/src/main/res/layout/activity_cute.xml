@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             app:fabSize="normal"
             app:srcCompat="@drawable/ic_heart"
-            android:backgroundTint="@android:color/white"
+            app:backgroundTint="@android:color/white"
             android:transitionName="@string/fab_activity_transition"/>
 
 </android.support.design.widget.CoordinatorLayout>

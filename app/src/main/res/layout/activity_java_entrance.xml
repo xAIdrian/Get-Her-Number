@@ -24,7 +24,7 @@
         android:src="@drawable/ic_heart"/>
 
     <View
-        android:id="@+id/fadeView"
+        android:id="@+id/circleView"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:pivotX="50%"

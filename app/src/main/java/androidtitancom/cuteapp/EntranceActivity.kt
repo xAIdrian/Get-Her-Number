@@ -2,23 +2,14 @@ package androidtitancom.cuteapp
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.v7.widget.Toolbar
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
 import android.widget.Toast
-import androidtitancom.cuteapp.java.HowsHeDoingActivity
 import android.support.v4.app.ActivityOptionsCompat
-
+import kotlinx.android.synthetic.main.activity_entrance.*
 
 
 class EntranceActivity : AppCompatActivity() {
@@ -30,13 +21,9 @@ class EntranceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_entrance)
 
         //view
-        val toolbar : Toolbar = findViewById(R.id.toolbar)
         toolbar.title = resources.getString(R.string.hey_you)
         toolbar.setTitleTextColor(getColor(R.color.colorAccent))
 
-        val fab : FloatingActionButton = findViewById(R.id.fab)
-        val circleView : View = findViewById(R.id.fadeView)
-        val settingsImageView : ImageView = findViewById(R.id.settings_imageview)
 
         fab.setOnClickListener {
             newAnimationIntent(this, fab)
@@ -72,31 +59,7 @@ class EntranceActivity : AppCompatActivity() {
         startActivity(intent, options.toBundle())
     }
 
-    /*
-        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-            val inflater : MenuInflater = menuInflater
-            inflater.inflate(R.menu.menu_entrance, menu)
-            return true
-        }
-
-        override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-
-            when(item?.itemId) {
-                R.id.menu_settings -> {
-                    //val intent : Intent = Intent(applicationContext, SettingsActivity::class.java)
-                    //startActivity(intent)
-                }
-                else -> {
-                    throw IllegalArgumentException("Invalid options item: " + item?.itemId)
-                }
-            }
-
-            return super.onOptionsItemSelected(item)
-        }
-    */
     override fun onResume() {
         super.onResume()
     }
-
-
 }

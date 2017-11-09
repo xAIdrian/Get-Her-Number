@@ -24,18 +24,18 @@
             android:layout_gravity="center"
             app:fabSize="normal"
             app:srcCompat="@drawable/ic_heart"
-            android:backgroundTint="@android:color/white"
+            app:backgroundTint="@android:color/white"
             android:transitionName="@string/fab_activity_transition"/>
 
     <View
-            android:id="@+id/fadeView"
+            android:id="@+id/circleView"
             android:layout_width="@dimen/fadeView"
             android:layout_height="@dimen/fadeView"
             android:layout_gravity="center"
             android:background="@drawable/circle_drawable"/>
 
     <ImageView
-            android:id="@+id/settings_imageview"
+            android:id="@+id/settingsImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/defaultt"

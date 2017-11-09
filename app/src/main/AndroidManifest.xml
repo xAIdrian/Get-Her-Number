@@ -14,10 +14,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
         <activity
-                android:name=".java.HowsHeDoingActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/Theme.Transparent"/>
-        <activity
                 android:name=".EntranceActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
@@ -29,7 +25,8 @@
         <activity
                 android:name=".CuteActivity"
                 android:label="@string/title_activity_cute"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

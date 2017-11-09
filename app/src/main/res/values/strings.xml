@@ -15,4 +15,7 @@
     <string name="menu_settings_title">menu_settings</string>
     <string name="title_activity_cute">CuteActivity</string>
     <string name="fab_activity_transition">fab_activity_transition</string>
+    <string name="youre_cute">You\'re Cute</string>
+    <string name="so_how_s_this_guy_doing_so_far">So how\'s this guy doing so far?</string>
+    <string name="maybe_i_ll_give_him_a_chance">Maybe I\'ll give him a chance</string>
 </resources>

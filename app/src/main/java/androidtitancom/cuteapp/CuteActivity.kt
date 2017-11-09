@@ -11,8 +11,7 @@ import android.view.ViewTreeObserver
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.RelativeLayout
-import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_cute_content.*
 
 
 class CuteActivity : AppCompatActivity() {
@@ -20,7 +19,6 @@ class CuteActivity : AppCompatActivity() {
     private var revealTextFade: Animation? = null
     private var hideTextFade: AlphaAnimation? = null
 
-    private var viewBundle: ViewBundle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,31 +28,20 @@ class CuteActivity : AppCompatActivity() {
         hideTextFade = AlphaAnimation(1.0f, 0.0f)
         hideTextFade?.duration = 250
 
-        val rootLayout : RelativeLayout = findViewById(R.id.rootLayout)
-        val textTitleView : TextView = findViewById(R.id.cuteTitleText)
-        val titleView : TextView = findViewById(R.id.questionTitle)
-        val chancer : TextView = findViewById(R.id.titleOne)
-        val noChancer : TextView = findViewById(R.id.titleTwo)
 
-        viewBundle = ViewBundle.Builder()
-                .texTitleView(textTitleView)
-                .titleView(titleView)
-                .chancer(chancer)
-                .noChancer(noChancer)
-                .build()
-
-        setupSharedElementTransition(rootLayout, viewBundle)
+        setupSharedElementTransition()
 
         if (savedInstanceState == null) {
-            rootLayout.visibility = View.INVISIBLE
+            rootRelativeLayout.visibility = View.INVISIBLE
 
-            val viewTreeObserver = rootLayout.viewTreeObserver
+            val viewTreeObserver = rootRelativeLayout.viewTreeObserver
             if (viewTreeObserver.isAlive) {
                 viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
                     override fun onGlobalLayout() {
-                        //circularRevealActivity()
+                        circularRevealActivity()
+
                         Log.e("CuteActivity", "onGlobalLayout")
-                        rootLayout.viewTreeObserver.removeGlobalOnLayoutListener(this)
+                        rootRelativeLayout.viewTreeObserver.removeGlobalOnLayoutListener(this)
                     }
                 })
             }
@@ -63,11 +50,10 @@ class CuteActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        exitReveal(viewBundle)
+        exitReveal()
     }
 
-    private fun setupSharedElementTransition(rootLayout: RelativeLayout, viewBundle: ViewBundle?) {
+    private fun setupSharedElementTransition() {
 
         val sharedElementEnterTransition = window.sharedElementEnterTransition
         sharedElementEnterTransition.addListener(object : android.transition.Transition.TransitionListener {
@@ -85,26 +71,24 @@ class CuteActivity : AppCompatActivity() {
 
             override fun onTransitionStart(transition: android.transition.Transition?) {
                 Log.e("CuteActivty", "onTransitionStart")
-                if (viewBundle != null) {
-                    circularRevealActivity(viewBundle)
-                }
+                    circularRevealActivity()
             }
         })
     }
 
-    private fun circularRevealActivity(viewBundle: ViewBundle) {
+    private fun circularRevealActivity() {
 
-        val cx = viewBundle.rootLayout?.getWidth()?.div(2)
-        val cy = viewBundle.rootLayout?.getHeight()?.div(2)
+        val cx = rootRelativeLayout.width.div(2)
+        val cy = rootRelativeLayout.height.div(2)
 
-        val finalRadius = Math.max(viewBundle.rootLayout!!.width!!, viewBundle.rootLayout!!.height).toFloat()
+        val finalRadius = Math.max(rootRelativeLayout.width, rootRelativeLayout.height).toFloat()
 
         // create the animator for this view (the start radius is zero)
-        val circularReveal = ViewAnimationUtils.createCircularReveal(viewBundle.rootLayout, cx!!, cy!!, 0f, finalRadius)
+        val circularReveal = ViewAnimationUtils.createCircularReveal(rootRelativeLayout, cx, cy, 0f, finalRadius)
         circularReveal.duration = 1000
 
         // make the view visible and start the animation
-        viewBundle.rootLayout.setVisibility(View.VISIBLE)
+        rootRelativeLayout.setVisibility(View.VISIBLE)
         circularReveal.start()
 
         circularReveal.addListener(object : Animator.AnimatorListener {
@@ -114,15 +98,14 @@ class CuteActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animator) {
 
-                viewBundle.textTitleView?.setVisibility(View.VISIBLE)
-                viewBundle.textTitleView?.startAnimation(revealTextFade)
-                viewBundle.titleView?.setVisibility(View.VISIBLE)
-                viewBundle.titleView?.startAnimation(revealTextFade)
-                viewBundle.chancer?.setVisibility(View.VISIBLE)
-                viewBundle.chancer?.startAnimation(revealTextFade)
-                viewBundle.noChancer?.setVisibility(View.VISIBLE)
-                viewBundle.noChancer?.startAnimation(revealTextFade)
-
+                titleTextView.setVisibility(View.VISIBLE)
+                titleTextView.startAnimation(revealTextFade)
+                questionTextView.setVisibility(View.VISIBLE)
+                questionTextView.startAnimation(revealTextFade)
+                chanceTextView.setVisibility(View.VISIBLE)
+                chanceTextView.startAnimation(revealTextFade)
+                noChanceTextView.setVisibility(View.VISIBLE)
+                noChanceTextView.startAnimation(revealTextFade)
             }
 
             override fun onAnimationCancel(animation: Animator) {
@@ -135,24 +118,25 @@ class CuteActivity : AppCompatActivity() {
         })
     }
 
-    internal fun exitReveal(viewBundle: ViewBundle?) {
+    private fun exitReveal() {
         // previously visible view
 
         // get the center for the clipping circle
-        val cx = viewBundle?.rootLayout?.getMeasuredWidth()?.div(2)
-        val cy = viewBundle?.rootLayout?.getMeasuredHeight()?.div(2)
+        val cx = rootRelativeLayout.measuredWidth.div(2)
+        val cy = rootRelativeLayout.measuredHeight.div(2)
 
         // get the initial radius for the clipping circle
-        val initialRadius = viewBundle?.rootLayout?.width?.div(2)
+        val initialRadius = rootRelativeLayout.width.div(2)
 
         // create the animation (the final radius is zero)
-        val anim = ViewAnimationUtils.createCircularReveal(viewBundle?.rootLayout, cx!!, cy!!, initialRadius?.toFloat()!!, 0f)
+        val anim = ViewAnimationUtils.createCircularReveal(rootRelativeLayout, cx, cy,
+                initialRadius.toFloat(), 0f)
 
         // make the view invisible when the animation is done
         anim.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 super.onAnimationEnd(animation)
-                viewBundle.rootLayout.visibility = View.INVISIBLE
+                rootRelativeLayout.visibility = View.INVISIBLE
                 finish()
             }
         })
@@ -160,7 +144,7 @@ class CuteActivity : AppCompatActivity() {
         // start the animation
         anim.start()
     }
-
+/*
     class ViewBundle( //add private constructor if necessary
             val rootLayout: RelativeLayout?,
             val textTitleView: TextView?,
@@ -193,5 +177,6 @@ class CuteActivity : AppCompatActivity() {
             fun build() = ViewBundle(this)
         }
     }
+    */
 }
 
