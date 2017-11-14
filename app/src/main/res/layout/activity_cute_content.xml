@@ -1,113 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/rootRelativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorAccent"
-                android:visibility="visible"
-                tools:showIn="@layout/activity_cute"
-                tools:context=".CuteActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:visibility="visible"
+    tools:context=".CuteActivity"
+    tools:showIn="@layout/activity_cute">
+
+
+    <ImageView
+        android:id="@+id/selectionImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/defaultt"
+        android:scaleType="fitXY" />
+
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:gravity="center_horizontal"
-                android:text="@string/youre_cute"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white"
-                android:textStyle="bold|italic"
-                android:visibility="invisible" />
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center_horizontal"
+            android:text="@string/youre_cute"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:visibility="invisible" />
 
         <ImageView
-                android:id="@+id/heartImageView"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_heart" />
+            android:id="@+id/heartImageView"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_heart" />
 
         <TextView
-                android:id="@+id/questionTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/heartImageView"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="75dp"
-                android:text="@string/so_how_s_this_guy_doing_so_far"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/white"
-                android:visibility="invisible"/>
-
-        <TextView
-                android:id="@+id/chanceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/questionTextView"
-                android:layout_centerHorizontal="true"
-                android:padding="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/bg_roundedcorners_white"
-                android:text="@string/maybe_i_ll_give_him_a_chance"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/white"
-                android:visibility="invisible"
-                android:textStyle="bold"/>
-
-        <TextView
-                android:id="@+id/noChanceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/chanceTextView"
-                android:layout_centerHorizontal="true"
-                android:padding="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/bg_roundedcorners_white"
-                android:text="This conversation is over!"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/white"
-                android:visibility="invisible"
-                android:textStyle="bold"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/secondRevealLayout"
+            android:id="@+id/questionTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/heartImageView"
+            android:layout_marginTop="75dp"
+            android:gravity="center_horizontal"
+            android:text="@string/so_how_s_this_guy_doing_so_far"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <TextView
-                android:id="@+id/serviceTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:gravity="center_horizontal"
-                android:padding="16dp"
-                android:text="@string/service"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/white" />
+            android:id="@+id/chanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/questionTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_roundedcorners_white"
+            android:padding="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/maybe_i_ll_give_him_a_chance"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
         <TextView
-                android:id="@+id/revealTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:gravity="center_horizontal"
-                android:layout_alignParentBottom="true"
-                android:text="Find Out!"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white"
-                android:textStyle="bold|italic"/>
+            android:id="@+id/noChanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chanceTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_roundedcorners_white"
+            android:padding="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/this_conversation_is_over"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

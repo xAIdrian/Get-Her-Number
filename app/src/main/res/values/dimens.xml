@@ -6,4 +6,5 @@
     <dimen name="fadeView">64dp</dimen>
     <dimen name="defaultt">8dp</dimen>
     <dimen name="double_fab">86dp</dimen>
+    <dimen name="doubleDefault">16dp</dimen>
 </resources>

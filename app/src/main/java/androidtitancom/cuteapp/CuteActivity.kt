@@ -2,7 +2,10 @@ package androidtitancom.cuteapp
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -11,23 +14,28 @@ import android.view.ViewTreeObserver
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.view.animation.TranslateAnimation
+import android.widget.ArrayAdapter
+import androidtitancom.cuteapp.model.CuteUser
 import kotlinx.android.synthetic.main.activity_cute_content.*
 
 
 class CuteActivity : AppCompatActivity() {
 
-    private var revealTextFade: Animation? = null
-    private var hideTextFade: AlphaAnimation? = null
+    lateinit var cutie: CuteUser
 
+    private var revealTextFade: Animation? = null
+    //private var hideTextFade: AlphaAnimation? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cute)
 
-        revealTextFade = AnimationUtils.loadAnimation(this, R.anim.reveal_text)
-        hideTextFade = AlphaAnimation(1.0f, 0.0f)
-        hideTextFade?.duration = 250
+        var handler = Handler()
 
+        revealTextFade = AnimationUtils.loadAnimation(this, R.anim.reveal_text)
+        val hideTextFade = AlphaAnimation(1.0f, 0.0f)
+        hideTextFade.duration = 250
 
         setupSharedElementTransition()
 
@@ -47,6 +55,89 @@ class CuteActivity : AppCompatActivity() {
             }
         }
 
+        //onClickListeners
+        chanceTextView.setOnClickListener {
+
+            noChanceTextView.startAnimation(hideTextFade)
+            heartImageView.startAnimation(hideTextFade)
+            questionTextView.startAnimation(hideTextFade)
+
+            handler.postDelayed({
+
+                noChanceTextView.visibility = View.INVISIBLE
+                heartImageView.visibility = View.INVISIBLE
+                questionTextView.visibility = View.INVISIBLE
+
+                val translateOutDown = TranslateAnimation(0F, 0F, 0F, 500F)
+                val translateOutUp = TranslateAnimation(0F, 0F, 0F, -500F)
+                translateOutDown.duration = 300
+                translateOutUp.duration = 300
+
+                chanceTextView.startAnimation(translateOutDown)
+                titleTextView.startAnimation(translateOutUp)
+
+                //display dialog for date and calendar
+                handler.postDelayed({
+
+                    chanceTextView.visibility = View.INVISIBLE
+                    noChanceTextView.visibility = View.INVISIBLE
+                    titleTextView.visibility = View.INVISIBLE
+
+                    buildDateDialog()
+
+                }, translateOutDown.duration)
+
+            }, hideTextFade.duration)
+        }
+
+    }
+
+    private fun buildDateDialog() {
+
+        val builder = AlertDialog.Builder(this)
+        val optionAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
+
+        builder.setTitle(getString(R.string.what_kind))
+
+        optionAdapter.add(getString(R.string.crazy))
+        optionAdapter.add(getString(R.string.classy))
+        optionAdapter.add(getString(R.string.basic))
+        optionAdapter.add(getString(R.string.adventurous))
+        optionAdapter.add(getString(R.string.chill))
+
+        builder.setNegativeButton(getString(R.string.picker_cancel), { dialog, _ ->
+            run {
+                dialog.dismiss()
+                this.finish()
+            }
+        })
+
+        builder.setAdapter(optionAdapter, { dialog, which ->
+            run {
+                //this will be stored to know who selected what
+                //reflect in the UI hints
+                val optionSelected = optionAdapter.getItem(which)
+
+                cutie = CuteUser(optionSelected)
+                setHintImage(optionSelected)
+
+                dialog.dismiss()
+                //calendarDialog.show(supportFragmentManager, getString(R.string.calendar_identify))
+
+            }
+        })
+        builder.show()
+    }
+
+    private fun setHintImage(optionSelected: String) {
+
+        when(optionSelected) {
+            getString(R.string.crazy) -> selectionImageView.setImageResource(R.drawable.ic_alert_octagram)
+            getString(R.string.classy) -> selectionImageView.setImageResource(R.drawable.ic_glass_flute)
+            getString(R.string.basic) -> selectionImageView.setImageResource(R.drawable.ic_airplane_off)
+            getString(R.string.adventurous) -> selectionImageView.setImageResource(R.drawable.ic_tree)
+            getString(R.string.chill) -> selectionImageView.setImageResource(R.drawable.ic_movie)
+        }
     }
 
     override fun onBackPressed() {
@@ -71,7 +162,7 @@ class CuteActivity : AppCompatActivity() {
 
             override fun onTransitionStart(transition: android.transition.Transition?) {
                 Log.e("CuteActivty", "onTransitionStart")
-                    circularRevealActivity()
+                circularRevealActivity()
             }
         })
     }
@@ -144,39 +235,5 @@ class CuteActivity : AppCompatActivity() {
         // start the animation
         anim.start()
     }
-/*
-    class ViewBundle( //add private constructor if necessary
-            val rootLayout: RelativeLayout?,
-            val textTitleView: TextView?,
-            val titleView: TextView?,
-            val chancer: TextView?,
-            val noChancer: TextView?
-    ) {
-
-        private constructor(builder: Builder) : this(builder.rootLayout, builder.textTitleView, builder.titleView, builder.chancer, builder.noChancer)
-
-        class Builder {
-            var rootLayout: RelativeLayout? = null
-                private set
-            var textTitleView: TextView? = null
-                private set
-            var titleView: TextView? = null
-                private set
-            var chancer : TextView? = null
-                private set
-            var noChancer : TextView? = null
-                private set
-
-            fun rootLayout(relativeLayout: RelativeLayout) = apply{ this.rootLayout = relativeLayout}
-            fun texTitleView(textView: TextView) = apply { this.textTitleView = textView }
-            fun titleView(textView: TextView) = apply { this.titleView = textView }
-            fun chancer(textView: TextView) = apply { this.chancer = textView }
-            fun noChancer(textView: TextView) = apply { this.noChancer = textView }
-
-
-            fun build() = ViewBundle(this)
-        }
-    }
-    */
 }
 

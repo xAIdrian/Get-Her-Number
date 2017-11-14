@@ -26,7 +26,7 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 
 import java.util.Calendar;
 
-import androidtitancom.cuteapp.MyAwesomeDialogFragment;
+import androidtitancom.cuteapp.FinalDialog;
 import androidtitancom.cuteapp.R;
 
 public class HowsHeDoingActivity extends AppCompatActivity {
@@ -38,9 +38,9 @@ public class HowsHeDoingActivity extends AppCompatActivity {
     ImageView heartImage;
 
     //@Bind(R.id.cuteTitleText)
-    TextView textTitle;
+    TextView titleTextView;
     //@Bind(R.id.questionTitle)
-    TextView titleView;
+    TextView questionTextView;
     //@Bind(R.id.titleOne)
     TextView chancer;
     //@Bind(R.id.titleTwo)
@@ -98,7 +98,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
 
             noChancer.startAnimation(hideTextFade);
             heartImage.startAnimation(hideTextFade);
-            titleView.startAnimation(hideTextFade);
+            questionTextView.startAnimation(hideTextFade);
 
             handler.postDelayed(new Runnable() {
                 @Override
@@ -106,7 +106,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
 
                     noChancer.setVisibility(View.INVISIBLE);
                     heartImage.setVisibility(View.INVISIBLE);
-                    titleView.setVisibility(View.INVISIBLE);
+                    questionTextView.setVisibility(View.INVISIBLE);
 
                     TranslateAnimation translateOutDown = new TranslateAnimation(0, 0, 0, 500);
                     translateOutDown.setDuration(300);
@@ -114,7 +114,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
                     translateOutUp.setDuration(300);
 
                     chancer.startAnimation(translateOutDown);
-                    textTitle.startAnimation(translateOutUp);
+                    titleTextView.startAnimation(translateOutUp);
 
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -122,7 +122,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
 
                             chancer.setVisibility(View.INVISIBLE);
                             noChancer.setVisibility(View.INVISIBLE);
-                            textTitle.setVisibility(View.INVISIBLE);
+                            titleTextView.setVisibility(View.INVISIBLE);
 
                             dialogBuilder();
                         }
@@ -144,7 +144,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
                 bundle.putInt("month", (monthOfYear + 1));
                 bundle.putInt("year", year);
 
-                MyAwesomeDialogFragment dialogFragment = MyAwesomeDialogFragment.newInstance();
+                FinalDialog dialogFragment = FinalDialog.newInstance();
                 dialogFragment.setArguments(bundle);
                 dialogFragment.show(fm, "dialogFrag");
             }
@@ -182,6 +182,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
 
                     }
                 });
+
 
         builderSingle.setAdapter(
                 arrayAdapter,
@@ -261,10 +262,10 @@ public class HowsHeDoingActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
 
-                        textTitle.setVisibility(View.VISIBLE);
-                        textTitle.startAnimation(revealTextFade);
-                        titleView.setVisibility(View.VISIBLE);
-                        titleView.startAnimation(revealTextFade);
+                        titleTextView.setVisibility(View.VISIBLE);
+                        titleTextView.startAnimation(revealTextFade);
+                        questionTextView.setVisibility(View.VISIBLE);
+                        questionTextView.startAnimation(revealTextFade);
                         chancer.setVisibility(View.VISIBLE);
                         chancer.startAnimation(revealTextFade);
                         noChancer.setVisibility(View.VISIBLE);

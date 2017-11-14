@@ -28,6 +28,7 @@ class EntranceActivity : AppCompatActivity() {
         fab.setOnClickListener {
             newAnimationIntent(this, fab)
         }
+
         settingsImageView.setOnClickListener {
             //val intent : Intent = Intent(applicationContext, SettingsActivity::class.java)
             //startActivity(intent)
@@ -54,7 +55,7 @@ class EntranceActivity : AppCompatActivity() {
     }
 
     private fun newAnimationIntent(context : Context, view : View) {
-        val intent : Intent = Intent(context, CuteActivity::class.java)
+        val intent = Intent(context, CuteActivity::class.java)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, resources.getString(R.string.fab_activity_transition))
         startActivity(intent, options.toBundle())
     }

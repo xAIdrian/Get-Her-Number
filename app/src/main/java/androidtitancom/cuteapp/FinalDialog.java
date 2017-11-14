@@ -20,7 +20,7 @@ import java.io.FileWriter;
 import androidtitancom.cuteapp.java.JavaEntranceActivity;
 
 
-public class MyAwesomeDialogFragment extends DialogFragment {
+public class FinalDialog extends DialogFragment {
 
     String name;
     String cellNumber;
@@ -36,12 +36,12 @@ public class MyAwesomeDialogFragment extends DialogFragment {
     TextView sender;
 
 
-    public MyAwesomeDialogFragment() {
+    public FinalDialog() {
         // Required empty public constructor
     }
 
-    public static MyAwesomeDialogFragment newInstance() {
-        MyAwesomeDialogFragment fragment = new MyAwesomeDialogFragment();
+    public static FinalDialog newInstance() {
+        FinalDialog fragment = new FinalDialog();
 //        Bundle args = new Bundle();
 //        fragment.setArguments(args);
         return fragment;
@@ -61,8 +61,8 @@ public class MyAwesomeDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_dialog, container, false);
-        //ButterKnife.bind(this, v);
+        View v = inflater.inflate(R.layout.final_dialog, container, false);
+        //aButterKnife.bind(this, v);
 
         text2.setInputType(InputType.TYPE_CLASS_NUMBER);
 
@@ -82,7 +82,7 @@ public class MyAwesomeDialogFragment extends DialogFragment {
                     Toast.makeText(getActivity(), "Failed", Toast.LENGTH_LONG).show();
                 }
 
-
+                // TODO: 11/13/17 Do not store in external memory, instead add to Firebase
                 if(Environment.getExternalStorageState() != null) {
                     try {
                         File root = new File(Environment.getExternalStorageDirectory(), "girlsNumber");
