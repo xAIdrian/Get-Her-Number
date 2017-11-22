@@ -10,17 +10,6 @@
     tools:context=".CuteActivity"
     tools:showIn="@layout/activity_cute">
 
-
-    <ImageView
-        android:id="@+id/selectionImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="@dimen/defaultt"
-        android:scaleType="fitXY" />
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,11 +35,11 @@
 
         <TextView
             android:id="@+id/questionTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/heartImageView"
             android:layout_marginTop="75dp"
-            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
             android:text="@string/so_how_s_this_guy_doing_so_far"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/white"
@@ -58,10 +47,13 @@
 
         <TextView
             android:id="@+id/chanceTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/questionTextView"
+            android:layout_alignStart="@+id/questionTextView"
+            android:layout_alignEnd="@+id/questionTextView"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_marginTop="32dp"
             android:background="@drawable/bg_roundedcorners_white"
             android:padding="8dp"
@@ -78,7 +70,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/chanceTextView"
+            android:layout_alignStart="@+id/questionTextView"
+            android:layout_alignEnd="@+id/questionTextView"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_roundedcorners_white"
             android:padding="8dp"

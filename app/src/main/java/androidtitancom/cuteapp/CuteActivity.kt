@@ -1,59 +1,39 @@
 package androidtitancom.cuteapp
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.graphics.drawable.Drawable
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.ViewAnimationUtils
-import android.view.ViewTreeObserver
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
 import androidtitancom.cuteapp.model.CuteUser
-import kotlinx.android.synthetic.main.activity_cute_content.*
+import kotlinx.android.synthetic.main.activity_cute.*
+import kotlinx.android.synthetic.main.content_cute.*
 
 
-class CuteActivity : AppCompatActivity() {
+class CuteActivity : CircularRevealActivity() {
 
-    lateinit var cutie: CuteUser
+    lateinit var optionSelected: String
 
-    private var revealTextFade: Animation? = null
-    //private var hideTextFade: AlphaAnimation? = null
+    companion object {
+        val OPTION_EXTRA: String = "cuteactivity.option.extra"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cute)
 
-        var handler = Handler()
-
-        revealTextFade = AnimationUtils.loadAnimation(this, R.anim.reveal_text)
-        val hideTextFade = AlphaAnimation(1.0f, 0.0f)
-        hideTextFade.duration = 250
-
         setupSharedElementTransition()
 
-        if (savedInstanceState == null) {
-            rootRelativeLayout.visibility = View.INVISIBLE
+        var handler = Handler()
 
-            val viewTreeObserver = rootRelativeLayout.viewTreeObserver
-            if (viewTreeObserver.isAlive) {
-                viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-                    override fun onGlobalLayout() {
-                        circularRevealActivity()
-
-                        Log.e("CuteActivity", "onGlobalLayout")
-                        rootRelativeLayout.viewTreeObserver.removeGlobalOnLayoutListener(this)
-                    }
-                })
-            }
-        }
+        val hideTextFade = AlphaAnimation(1.0f, 0.0f)
+        hideTextFade.duration = 250
 
         //onClickListeners
         chanceTextView.setOnClickListener {
@@ -89,7 +69,6 @@ class CuteActivity : AppCompatActivity() {
 
             }, hideTextFade.duration)
         }
-
     }
 
     private fun buildDateDialog() {
@@ -114,34 +93,28 @@ class CuteActivity : AppCompatActivity() {
 
         builder.setAdapter(optionAdapter, { dialog, which ->
             run {
+                dialog.dismiss()
                 //this will be stored to know who selected what
                 //reflect in the UI hints
-                val optionSelected = optionAdapter.getItem(which)
+                optionSelected = optionAdapter.getItem(which)
 
-                cutie = CuteUser(optionSelected)
-                setHintImage(optionSelected)
-
-                dialog.dismiss()
-                //calendarDialog.show(supportFragmentManager, getString(R.string.calendar_identify))
-
+                exitReveal(rootRelativeLayout)
             }
         })
-        builder.show()
+        val dialog = builder.create()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setCancelable(false)
+        dialog.show()
     }
 
-    private fun setHintImage(optionSelected: String) {
+    override fun launchSharedAnimationActivity() {
 
-        when(optionSelected) {
-            getString(R.string.crazy) -> selectionImageView.setImageResource(R.drawable.ic_alert_octagram)
-            getString(R.string.classy) -> selectionImageView.setImageResource(R.drawable.ic_glass_flute)
-            getString(R.string.basic) -> selectionImageView.setImageResource(R.drawable.ic_airplane_off)
-            getString(R.string.adventurous) -> selectionImageView.setImageResource(R.drawable.ic_tree)
-            getString(R.string.chill) -> selectionImageView.setImageResource(R.drawable.ic_movie)
-        }
-    }
+        val intent = Intent(this, ClosingActivity::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, fab, resources.getString(R.string.fab_activity_transition))
 
-    override fun onBackPressed() {
-        exitReveal()
+        intent.putExtra(OPTION_EXTRA, optionSelected)
+        startActivity(intent, options.toBundle())
+
     }
 
     private fun setupSharedElementTransition() {
@@ -162,78 +135,25 @@ class CuteActivity : AppCompatActivity() {
 
             override fun onTransitionStart(transition: android.transition.Transition?) {
                 Log.e("CuteActivty", "onTransitionStart")
-                circularRevealActivity()
+                circularRevealActivity(rootRelativeLayout)
             }
         })
     }
 
-    private fun circularRevealActivity() {
-
-        val cx = rootRelativeLayout.width.div(2)
-        val cy = rootRelativeLayout.height.div(2)
-
-        val finalRadius = Math.max(rootRelativeLayout.width, rootRelativeLayout.height).toFloat()
-
-        // create the animator for this view (the start radius is zero)
-        val circularReveal = ViewAnimationUtils.createCircularReveal(rootRelativeLayout, cx, cy, 0f, finalRadius)
-        circularReveal.duration = 1000
-
-        // make the view visible and start the animation
-        rootRelativeLayout.setVisibility(View.VISIBLE)
-        circularReveal.start()
-
-        circularReveal.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator) {
-
-            }
-
-            override fun onAnimationEnd(animation: Animator) {
-
-                titleTextView.setVisibility(View.VISIBLE)
-                titleTextView.startAnimation(revealTextFade)
-                questionTextView.setVisibility(View.VISIBLE)
-                questionTextView.startAnimation(revealTextFade)
-                chanceTextView.setVisibility(View.VISIBLE)
-                chanceTextView.startAnimation(revealTextFade)
-                noChanceTextView.setVisibility(View.VISIBLE)
-                noChanceTextView.startAnimation(revealTextFade)
-            }
-
-            override fun onAnimationCancel(animation: Animator) {
-
-            }
-
-            override fun onAnimationRepeat(animation: Animator) {
-
-            }
-        })
+    override fun onBackPressed() {
+        exitReveal(rootRelativeLayout, true)
     }
 
-    private fun exitReveal() {
-        // previously visible view
+    override fun handleAnimations(visibility: Int, animation: Animation) {
 
-        // get the center for the clipping circle
-        val cx = rootRelativeLayout.measuredWidth.div(2)
-        val cy = rootRelativeLayout.measuredHeight.div(2)
-
-        // get the initial radius for the clipping circle
-        val initialRadius = rootRelativeLayout.width.div(2)
-
-        // create the animation (the final radius is zero)
-        val anim = ViewAnimationUtils.createCircularReveal(rootRelativeLayout, cx, cy,
-                initialRadius.toFloat(), 0f)
-
-        // make the view invisible when the animation is done
-        anim.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                super.onAnimationEnd(animation)
-                rootRelativeLayout.visibility = View.INVISIBLE
-                finish()
-            }
-        })
-
-        // start the animation
-        anim.start()
+        titleTextView.setVisibility(visibility)
+        titleTextView.startAnimation(animation)
+        questionTextView.setVisibility(visibility)
+        questionTextView.startAnimation(animation)
+        chanceTextView.setVisibility(visibility)
+        chanceTextView.startAnimation(animation)
+        noChanceTextView.setVisibility(visibility)
+        noChanceTextView.startAnimation(animation)
     }
 }
 

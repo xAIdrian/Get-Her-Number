@@ -14,8 +14,6 @@ import kotlinx.android.synthetic.main.activity_entrance.*
 
 class EntranceActivity : AppCompatActivity() {
 
-    private val ANIMATION_INTENT : String = "entranceActivity.animation_intent"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrance)
@@ -23,7 +21,6 @@ class EntranceActivity : AppCompatActivity() {
         //view
         toolbar.title = resources.getString(R.string.hey_you)
         toolbar.setTitleTextColor(getColor(R.color.colorAccent))
-
 
         fab.setOnClickListener {
             newAnimationIntent(this, fab)
@@ -57,10 +54,7 @@ class EntranceActivity : AppCompatActivity() {
     private fun newAnimationIntent(context : Context, view : View) {
         val intent = Intent(context, CuteActivity::class.java)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, resources.getString(R.string.fab_activity_transition))
-        startActivity(intent, options.toBundle())
-    }
 
-    override fun onResume() {
-        super.onResume()
+        startActivity(intent, options.toBundle())
     }
 }

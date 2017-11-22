@@ -26,10 +26,10 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 
 import java.util.Calendar;
 
-import androidtitancom.cuteapp.FinalDialog;
+import androidtitancom.cuteapp.JavaNumberDialog;
 import androidtitancom.cuteapp.R;
 
-public class HowsHeDoingActivity extends AppCompatActivity {
+public class JavaCuteActivity extends AppCompatActivity {
 
     //@Bind(R.id.rootLayout)
     RelativeLayout rootLayout;
@@ -63,7 +63,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_howshedoing);
+        setContentView(R.layout.activity_java_cute);
         //ButterKnife.bind(this);
 
         handler = new Handler();
@@ -144,7 +144,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
                 bundle.putInt("month", (monthOfYear + 1));
                 bundle.putInt("year", year);
 
-                FinalDialog dialogFragment = FinalDialog.newInstance();
+                JavaNumberDialog dialogFragment = JavaNumberDialog.newInstance();
                 dialogFragment.setArguments(bundle);
                 dialogFragment.show(fm, "dialogFrag");
             }
@@ -153,7 +153,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
         noChancer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HowsHeDoingActivity.this, "Don\'t lie to yourself.  He\'s a cutie", Toast.LENGTH_LONG).show();
+                Toast.makeText(JavaCuteActivity.this, "Don\'t lie to yourself.  He\'s a cutie", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -178,7 +178,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        HowsHeDoingActivity.this.finish();
+                        JavaCuteActivity.this.finish();
 
                     }
                 });
@@ -305,7 +305,7 @@ public class HowsHeDoingActivity extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 rootLayout.setVisibility(View.INVISIBLE);
-                HowsHeDoingActivity.this.finish();
+                JavaCuteActivity.this.finish();
             }
         });
 

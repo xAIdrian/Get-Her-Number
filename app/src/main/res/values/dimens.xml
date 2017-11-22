@@ -7,4 +7,6 @@
     <dimen name="defaultt">8dp</dimen>
     <dimen name="double_fab">86dp</dimen>
     <dimen name="doubleDefault">16dp</dimen>
+    <dimen name="halfDefault">4dp</dimen>
+    <dimen name="default_fab">43dp</dimen>
 </resources>

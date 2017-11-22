@@ -58,7 +58,7 @@ public class JavaEntranceActivity extends AppCompatActivity {
 
         fab.setOnClickListener(v -> {
 
-            Intent intent = new Intent(JavaEntranceActivity.this, HowsHeDoingActivity.class);
+            Intent intent = new Intent(JavaEntranceActivity.this, JavaCuteActivity.class);
             startActivity(intent);
 
         });

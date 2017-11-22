@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:visibility="visible"
-    tools:context=".java.HowsHeDoingActivity">
+    tools:context=".java.JavaCuteActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

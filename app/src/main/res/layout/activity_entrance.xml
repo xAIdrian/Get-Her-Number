@@ -5,8 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="androidtitancom.cuteapp.EntranceActivity"
-        android:background="@android:color/white">
+        tools:context="androidtitancom.cuteapp.EntranceActivity">
 
     <TextView
             android:layout_width="match_parent"
@@ -60,7 +59,7 @@
                 android:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
-                android:background="@android:color/white">
+                android:background="@color/default_background">
 
         </android.support.v7.widget.Toolbar>
 

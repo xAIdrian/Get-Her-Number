@@ -16,7 +16,7 @@
     <string name="title_activity_cute">CuteActivity</string>
     <string name="fab_activity_transition">fab_activity_transition</string>
     <string name="youre_cute">You\'re Cute</string>
-    <string name="so_how_s_this_guy_doing_so_far">So how\'s this guy doing so far?</string>
+    <string name="so_how_s_this_guy_doing_so_far">He wants to take you on a date...</string>
     <string name="maybe_i_ll_give_him_a_chance">Maybe I\'ll give him a chance</string>
     <string name="this_conversation_is_over">This conversation is over!</string>
 
@@ -28,4 +28,9 @@
     <string name="adventurous">Rock Climbing and a Picnic</string>
     <string name="chill">Movies and Bourbon on the Rocks</string>
     <string name="calendar_identify">calendarDialog</string>
+    <string name="title_activity_closing">ClosingActivity</string>
+    <string name="name">Name</string>
+    <string name="number">Your Cell</string>
+    <string name="welcome_back">I think he\'s cute</string>
+    <string name="send">Send!</string>
 </resources>

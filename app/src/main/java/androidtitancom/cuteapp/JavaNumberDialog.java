@@ -20,7 +20,7 @@ import java.io.FileWriter;
 import androidtitancom.cuteapp.java.JavaEntranceActivity;
 
 
-public class FinalDialog extends DialogFragment {
+public class JavaNumberDialog extends DialogFragment {
 
     String name;
     String cellNumber;
@@ -36,12 +36,12 @@ public class FinalDialog extends DialogFragment {
     TextView sender;
 
 
-    public FinalDialog() {
+    public JavaNumberDialog() {
         // Required empty public constructor
     }
 
-    public static FinalDialog newInstance() {
-        FinalDialog fragment = new FinalDialog();
+    public static JavaNumberDialog newInstance() {
+        JavaNumberDialog fragment = new JavaNumberDialog();
 //        Bundle args = new Bundle();
 //        fragment.setArguments(args);
         return fragment;
@@ -61,7 +61,7 @@ public class FinalDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.final_dialog, container, false);
+        View v = inflater.inflate(R.layout.dialog_java_number, container, false);
         //aButterKnife.bind(this, v);
 
         text2.setInputType(InputType.TYPE_CLASS_NUMBER);
