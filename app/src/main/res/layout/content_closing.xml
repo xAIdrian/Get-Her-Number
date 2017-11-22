@@ -73,8 +73,30 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/fab">
 
+        <com.eyalbira.loadingdots.LoadingDots
+            android:id="@+id/sendLoadingDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingStart="@dimen/default_fab"
+            android:paddingEnd="@dimen/default_fab"
+
+            app:LoadingDots_auto_play="true"
+
+            app:LoadingDots_dots_color="@color/colorAccent"
+            app:LoadingDots_dots_count="4"
+            app:LoadingDots_dots_size="6dp"
+            app:LoadingDots_dots_space="2dp"
+
+            app:LoadingDots_loop_duration="1600"
+            app:LoadingDots_loop_start_delay="100"
+
+            app:LoadingDots_jump_duration="400"
+            app:LoadingDots_jump_height="4dp"/>
+
         <TextView
             android:id="@+id/sendTextView"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -105,6 +127,6 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/defaultt"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/ic_settings_backup_restore_black_24dp" />
+        app:srcCompat="@drawable/ic_refresh_black_24dp" />
 
 </RelativeLayout>

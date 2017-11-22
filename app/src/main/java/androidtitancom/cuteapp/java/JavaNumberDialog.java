@@ -1,4 +1,4 @@
-package androidtitancom.cuteapp;
+package androidtitancom.cuteapp.java;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileWriter;
 
-import androidtitancom.cuteapp.java.JavaEntranceActivity;
+import androidtitancom.cuteapp.R;
 
 
 public class JavaNumberDialog extends DialogFragment {

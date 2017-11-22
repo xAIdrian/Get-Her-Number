@@ -26,7 +26,6 @@ import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialo
 
 import java.util.Calendar;
 
-import androidtitancom.cuteapp.JavaNumberDialog;
 import androidtitancom.cuteapp.R;
 
 public class JavaCuteActivity extends AppCompatActivity {

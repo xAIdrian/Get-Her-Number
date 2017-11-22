@@ -33,15 +33,6 @@
             android:layout_gravity="center"
             android:background="@drawable/circle_drawable"/>
 
-    <ImageView
-            android:id="@+id/settingsImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/defaultt"
-            android:layout_gravity="bottom|end"
-            app:srcCompat="@drawable/ic_tune"
-            android:scaleType="fitXY"/>
-
     <!-- ActionBar -->
 
     <android.support.design.widget.AppBarLayout

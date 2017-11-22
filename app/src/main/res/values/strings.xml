@@ -20,17 +20,27 @@
     <string name="maybe_i_ll_give_him_a_chance">Maybe I\'ll give him a chance</string>
     <string name="this_conversation_is_over">This conversation is over!</string>
 
-    <!-- Date Dialog -->
-    <string name="what_kind">So, where do you want to go?</string>
-    <string name="crazy">Paint the Town Red</string>
-    <string name="classy">Classy Cocktails and Dancing</string>
+    <string name="what_kind">So, what do you want to do?</string>
+    <string name="crazy">Junk Food and Mischief</string>
+    <string name="classy">Dancing and Classy Cocktails</string>
     <string name="basic">Sushi and White Wine</string>
     <string name="adventurous">Rock Climbing and a Picnic</string>
-    <string name="chill">Movies and Bourbon on the Rocks</string>
-    <string name="calendar_identify">calendarDialog</string>
+    <string name="chill">Movie and Bourbon on the Rocks</string>
+
+    <string name="action_crazy">cause some mischief, run from the police, and eat junk food</string>
+    <string name="action_classy">meet for classy cocktails and go dancing</string>
+    <string name="action_basic">devour some sushi paired with white wine</string>
+    <string name="action_adventurous">go rock climbing and bring a picnic</string>
+    <string name="action_chill">watch a movie (or a few) and drink bourbon on the rocks</string>
+
+
     <string name="title_activity_closing">ClosingActivity</string>
     <string name="name">Name</string>
     <string name="number">Your Cell</string>
-    <string name="welcome_back">I think he\'s cute</string>
+    <string name="welcome_back">I think he likes me</string>
     <string name="send">Send!</string>
+    <string name="failed">Text Message Failed … Sorry</string>
+    <string name="lies">Don\'t lie to yourself.  He\'s hot!</string>
+    <string name="success">Text Message Sent ... Yay!</string>
+    <string name="sent">Text message already sent.  Please restartApp.</string>
 </resources>

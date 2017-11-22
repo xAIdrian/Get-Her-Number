@@ -11,6 +11,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidtitancom.cuteapp.model.CuteUser
 import kotlinx.android.synthetic.main.activity_cute.*
 import kotlinx.android.synthetic.main.content_cute.*
@@ -69,6 +70,8 @@ class CuteActivity : CircularRevealActivity() {
 
             }, hideTextFade.duration)
         }
+
+        noChanceTextView.setOnClickListener { Toast.makeText(this, R.string.lies, Toast.LENGTH_LONG).show() }
     }
 
     private fun buildDateDialog() {

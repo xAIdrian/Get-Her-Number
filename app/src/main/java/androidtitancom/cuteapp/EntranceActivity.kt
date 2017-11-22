@@ -1,9 +1,11 @@
 package androidtitancom.cuteapp
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -18,18 +20,15 @@ class EntranceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrance)
 
+        //request permission to send text messages
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),1);
+
         //view
         toolbar.title = resources.getString(R.string.hey_you)
         toolbar.setTitleTextColor(getColor(R.color.colorAccent))
 
         fab.setOnClickListener {
             newAnimationIntent(this, fab)
-        }
-
-        settingsImageView.setOnClickListener {
-            //val intent : Intent = Intent(applicationContext, SettingsActivity::class.java)
-            //startActivity(intent)
-            Toast.makeText(this, "Still need to implement our passwords and settings", Toast.LENGTH_SHORT).show()
         }
 
         //handling our animations
