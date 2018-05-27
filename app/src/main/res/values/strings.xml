@@ -1,22 +1,12 @@
 <resources>
-    <string name="app_name">CuteApp</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="app_name">Get Her Number</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="krono"></string>
-    <string name="service">That\'s not surprising. He\'s a good guy. We used to serve together in
-        the unforgiving jungles of Cambodia.
-        I once saw him save a basket of puppies during an ambush.\n
-        I\'m sure you\'re wondering what the hell of this whole thing is\n\n
-        Well, you\'re about to find out.
-    </string>
     <string name="hey_you">hey you</string>
     <string name="menu_settings_title">menu_settings</string>
     <string name="title_activity_cute">CuteActivity</string>
     <string name="fab_activity_transition">fab_activity_transition</string>
     <string name="youre_cute">You\'re Cute</string>
-    <string name="so_how_s_this_guy_doing_so_far">He wants to take you on a date...</string>
+    <string name="so_how_s_this_guy_doing_so_far">He wants to take you on a date…</string>
     <string name="maybe_i_ll_give_him_a_chance">Maybe I\'ll give him a chance</string>
     <string name="this_conversation_is_over">This conversation is over!</string>
 
@@ -30,8 +20,8 @@
     <string name="action_crazy">cause some mischief, run from the police, and eat junk food</string>
     <string name="action_classy">meet for classy cocktails and go dancing</string>
     <string name="action_basic">devour some sushi paired with white wine</string>
-    <string name="action_adventurous">go rock climbing and bring a picnic</string>
-    <string name="action_chill">watch a movie (or a few) and drink bourbon on the rocks</string>
+    <string name="action_adventurous">go rock climbing and enjoy a picnic</string>
+    <string name="action_chill">watch a movie and drink bourbon on the rocks</string>
 
 
     <string name="title_activity_closing">ClosingActivity</string>
@@ -41,6 +31,21 @@
     <string name="send">Send!</string>
     <string name="failed">Text Message Failed … Sorry</string>
     <string name="lies">Don\'t lie to yourself.  He\'s hot!</string>
-    <string name="success">Text Message Sent ... Yay!</string>
+    <string name="success">Text Message Sent … Yay!</string>
     <string name="sent">Text message already sent.  Please restartApp.</string>
+
+    <string name="onboarding_title">So why\'s this app so cute?</string>
+    <string name="onboarding"><![CDATA[Welcome to <b>Get Her Number</b> my good man!  Use this app while you\'re having a fun and flirtatious conversation with a cute girl (this will give you the best results).\nHere\'s how it works:]]></string>
+    <string name="step_one">Bring up mobile apps in coversation \nHint: \"So have you downloaded any cool apps lately?\"</string>
+    <string name="step_two">Open this app on your phone, hand it to the cutie standing in front of you, and tell her to press the button.</string>
+    <string name="step_three">Sit back while she laughs and gives you her phone number!</string>
+    <string name="disclaimer"><![CDATA[<b>Disclaimer:</b> We do not guarantee she will give you her number or give you a valid number.  This app is meant to be a tool in the confident and charismatic man's tool belt.]]></string>
+    <string name="next">NEXT</string>
+    <string name="permissions">This app will send her a cute text message once a phone number is entered.  We need your permission to do this.</string>
+    <string name="onboarding_fragment">OnboardingDialogFragment</string>
+    <string name="step_refresh">Clicking this icon will take you back to the beginning.</string>
+    <string name="title_activity_entrance">EntranceActivity</string>
+    <string name="tech_stuff">Technicalities</string>
+    <string name="eula">Get Her Number 1.0 Copyright © 2017 Adrian M Mohnacs  *** END USER LICENSE AGREEMENT ***  IMPORTANT: PLEASE READ THIS LICENSE CAREFULLY BEFORE USING THIS SOFTWARE.  1. LICENSE  By receiving, opening the file package, and/or using Get Her Number 1.0(\"Software\") containing this software, you agree that this End User User License Agreement(EULA) is a legally binding and valid contract and agree to be bound by it. You agree to abide by the intellectual property laws and all of the terms and conditions of this Agreement.  Unless you have a different license agreement signed by Adrian M Mohnacs your use of Get Her Number 1.0 indicates your acceptance of this license agreement and warranty.  Subject to the terms of this Agreement, Adrian M Mohnacs grants to you a limited, non-exclusive, non-transferable license, without right to sub-license, to use Get Her Number 1.0 in accordance with this Agreement and any other written agreement with Adrian M Mohnacs. Adrian M Mohnacs does not transfer the title of Get Her Number 1.0 to you; the license granted to you is not a sale. This agreement is a binding legal agreement between Adrian M Mohnacs and the purchasers or users of Get Her Number 1.0.  If you do not agree to be bound by this agreement, remove Get Her Number 1.0 from your computer now and, if applicable, promptly return to Adrian M Mohnacs by mail any copies of Get Her Number 1.0 and related documentation and packaging in your possession.  2. DISTRIBUTION  Get Her Number 1.0 and the license herein granted shall not be copied, shared, distributed, re-sold, offered for re-sale, transferred or sub-licensed in whole or in part except that you may make one copy for archive purposes only. For information about redistribution of Get Her Number 1.0 contact Adrian M Mohnacs.  3. USER AGREEMENT  3.1 Use  Your license to use Get Her Number 1.0 is limited to the number of licenses purchased by you. You shall not allow others to use, copy or evaluate copies of Get Her Number 1.0.  3.2 Use Restrictions  You shall use Get Her Number 1.0 in compliance with all applicable laws and not for any unlawful purpose. Without limiting the foregoing, use, display or distribution of Get Her Number 1.0 together with material that is pornographic, racist, vulgar, obscene, defamatory, libelous, abusive, promoting hatred, discriminating or displaying prejudice based on religion, ethnic heritage, race, sexual orientation or age is strictly prohibited.  Each licensed copy of Get Her Number 1.0 may be used on one single computer location by one user. Use of Get Her Number 1.0 means that you have loaded, installed, or run Get Her Number 1.0 on a computer or similar device. If you install Get Her Number 1.0 onto a multi-user platform, server or network, each and every individual user of Get Her Number 1.0 must be licensed separately.  You may make one copy of Get Her Number 1.0 for backup purposes, providing you only have one copy installed on one computer being used by one person. Other users may not use your copy of Get Her Number 1.0 . The assignment, sublicense, networking, sale, or distribution of copies of Get Her Number 1.0 are strictly forbidden without the prior written consent of Adrian M Mohnacs. It is a violation of this agreement to assign, sell, share, loan, rent, lease, borrow, network or transfer the use of Get Her Number 1.0. If any person other than yourself uses Get Her Number 1.0 registered in your name, regardless of whether it is at the same time or different times, then this agreement is being violated and you are responsible for that violation!  3.3 Copyright Restriction  This Software contains copyrighted material, trade secrets and other proprietary material. You shall not, and shall not attempt to, modify, reverse engineer, disassemble or decompile Get Her Number 1.0. Nor can you create any derivative works or other works that are based upon or derived from Get Her Number 1.0 in whole or in part.  Adrian M Mohnacs\'s name, logo and graphics file that represents Get Her Number 1.0 shall not be used in any way to promote products developed with Get Her Number 1.0 . Adrian M Mohnacs retains sole and exclusive ownership of all right, title and interest in and to Get Her Number 1.0 and all Intellectual Property rights relating thereto.  Copyright law and international copyright treaty provisions protect all parts of Get Her Number 1.0, products and services. No program, code, part, image, audio sample, or text may be copied or used in any way by the user except as intended within the bounds of the single user program. All rights not expressly granted hereunder are reserved for Adrian M Mohnacs.  3.4 Limitation of Responsibility  You will indemnify, hold harmless, and defend Adrian M Mohnacs , its employees, agents and distributors against any and all claims, proceedings, demand and costs resulting from or in any way connected with your use of Adrian M Mohnacs\'s Software.  In no event (including, without limitation, in the event of negligence) will Adrian M Mohnacs , its employees, agents or distributors be liable for any consequential, incidental, indirect, special or punitive damages whatsoever (including, without limitation, damages for loss of profits, loss of use, business interruption, loss of information or data, or pecuniary loss), in connection with or arising out of or related to this Agreement, Get Her Number 1.0 or the use or inability to use Get Her Number 1.0 or the furnishing, performance or use of any other matters hereunder whether based upon contract, tort or any other theory including negligence.  Adrian M Mohnacs\'s entire liability, without exception, is limited to the customers\' reimbursement of the purchase price of the Software (maximum being the lesser of the amount paid by you and the suggested retail price as listed by Adrian M Mohnacs ) in exchange for the return of the product, all copies, registration papers and manuals, and all materials that constitute a transfer of license from the customer back to Adrian M Mohnacs.  3.5 Warranties  Except as expressly stated in writing, Adrian M Mohnacs makes no representation or warranties in respect of this Software and expressly excludes all other warranties, expressed or implied, oral or written, including, without limitation, any implied warranties of merchantable quality or fitness for a particular purpose.  3.6 Governing Law  This Agreement shall be governed by the law of the United States applicable therein. You hereby irrevocably attorn and submit to the non-exclusive jurisdiction of the courts of United States therefrom. If any provision shall be considered unlawful, void or otherwise unenforceable, then that provision shall be deemed severable from this License and not affect the validity and enforceability of any other provisions.  3.7 Termination  Any failure to comply with the terms and conditions of this Agreement will result in automatic and immediate termination of this license. Upon termination of this license granted herein for any reason, you agree to immediately cease use of Get Her Number 1.0 and destroy all copies of Get Her Number 1.0 supplied under this Agreement. The financial obligations incurred by you shall survive the expiration or termination of this license.</string>
+    <string name="ok">cool</string>
 </resources>

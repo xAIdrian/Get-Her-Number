@@ -9,4 +9,8 @@
     <dimen name="doubleDefault">16dp</dimen>
     <dimen name="halfDefault">4dp</dimen>
     <dimen name="default_fab">43dp</dimen>
+    <dimen name="drawer_header_height">100dp</dimen>
+    <dimen name="onboarding_width">400dp</dimen>
+    <dimen name="onbaording_icon_size">24dp</dimen>
+    <dimen name="header_image_size">64dp</dimen>
 </resources>

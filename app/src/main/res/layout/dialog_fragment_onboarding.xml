@@ -1,13 +1,165 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="androidtitancom.cuteapp.OnboardingFragmentDialog">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="androidtitancom.cuteapp.OnboardingDialogFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <include layout="@layout/header_onbaording" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/onboardingTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/defaultt"
+                android:gravity="center"
+                android:paddingEnd="@dimen/defaultt"
+                android:paddingStart="@dimen/defaultt"
+                android:paddingTop="@dimen/defaultt"
+                tools:text="@string/onboarding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/halfDefault">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/halfDefault">
+
+                    <ImageView
+                        android:id="@+id/stepOneImageView"
+                        android:layout_width="@dimen/onbaording_icon_size"
+                        android:layout_height="@dimen/onbaording_icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_numeric_1_box_outline"
+                        android:contentDescription="@string/cd_stepone_imageview"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/stepOneImageView"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/defaultt"
+                        android:text="@string/step_one" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/defaultt">
+
+                    <ImageView
+                        android:id="@+id/stepTwoImageView"
+                        android:layout_width="@dimen/onbaording_icon_size"
+                        android:layout_height="@dimen/onbaording_icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_numeric_2_box_outline"
+                        android:contentDescription="@string/cd_steptwo_imageview"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/stepTwoImageView"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/defaultt"
+                        android:text="@string/step_two" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/defaultt">
+
+                    <ImageView
+                        android:id="@+id/stepThreeImageView"
+                        android:layout_width="@dimen/onbaording_icon_size"
+                        android:layout_height="@dimen/onbaording_icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_numeric_3_box_outline"
+                        android:contentDescription="@string/cd_stepthree_imageview"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/stepThreeImageView"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/defaultt"
+                        android:text="@string/step_three" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/defaultt">
+
+                    <ImageView
+                        android:id="@+id/refreshImageView"
+                        android:layout_width="@dimen/onbaording_icon_size"
+                        android:layout_height="@dimen/onbaording_icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_refresh_black_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/refreshImageView"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/defaultt"
+                        android:text="@string/step_refresh"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/disclaimerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/defaultt"
+                tools:text="@string/disclaimer" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/defaultt"
+                android:text="@string/permissions" />
+
+            <TextView
+                android:id="@+id/nextClickTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:background="@drawable/bg_roundedcorners_accent"
+                android:padding="@dimen/defaultt"
+                android:layout_margin="@dimen/doubleDefault"
+                android:text="@string/next"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,7 +1,10 @@
 package androidtitancom.cuteapp
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.telephony.SmsManager
 import android.text.Editable
@@ -14,15 +17,22 @@ import androidtitancom.cuteapp.model.CuteUser
 
 import kotlinx.android.synthetic.main.activity_closing.*
 import kotlinx.android.synthetic.main.content_closing.*
+import android.os.Build
+import android.annotation.TargetApi
+
+
 
 class ClosingActivity : AppCompatActivity() {
 
-    lateinit var cutie: CuteUser
-    var messageSent = false
+    private lateinit var cutie: CuteUser
+    private var messageSent = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_closing)
+
+        //if the user hasn't given permission yet
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),1)
 
         //view
         toolbar.title = resources.getString(R.string.welcome_back)
@@ -46,7 +56,8 @@ class ClosingActivity : AppCompatActivity() {
                         //circularRevealActivity(closingRootRelativeLayout)
 
                         Log.e("ClosingActivity", "onGlobalLayout")
-                        closingRootRelativeLayout.viewTreeObserver.removeGlobalOnLayoutListener(this)
+                        removeOnGlobalLayoutListener(closingRootRelativeLayout, this)
+                        //closingRootRelativeLayout.viewTreeObserver.removeGlobalOnLayoutListener(this)
                     }
                 })
             }
@@ -133,7 +144,7 @@ class ClosingActivity : AppCompatActivity() {
     }
 
     private fun restartApp() {
-        val intent = Intent(this@ClosingActivity, EntranceActivity::class.java)
+        val intent = Intent(this@ClosingActivity, PressButtonActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         finish()
@@ -141,5 +152,15 @@ class ClosingActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         restartApp()
+    }
+
+    @SuppressLint("ObsoleteSdkInt")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    fun removeOnGlobalLayoutListener(v: View, listener: ViewTreeObserver.OnGlobalLayoutListener) {
+        if (Build.VERSION.SDK_INT < 16) {
+            v.viewTreeObserver.removeGlobalOnLayoutListener(listener)
+        } else {
+            v.viewTreeObserver.removeOnGlobalLayoutListener(listener)
+        }
     }
 }

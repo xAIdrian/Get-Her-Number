@@ -12,14 +12,13 @@ import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidtitancom.cuteapp.model.CuteUser
 import kotlinx.android.synthetic.main.activity_cute.*
 import kotlinx.android.synthetic.main.content_cute.*
 
 
 class CuteActivity : CircularRevealActivity() {
 
-    lateinit var optionSelected: String
+    private lateinit var optionSelected: String
 
     companion object {
         val OPTION_EXTRA: String = "cuteactivity.option.extra"
@@ -31,7 +30,7 @@ class CuteActivity : CircularRevealActivity() {
 
         setupSharedElementTransition()
 
-        var handler = Handler()
+        val handler = Handler()
 
         val hideTextFade = AlphaAnimation(1.0f, 0.0f)
         hideTextFade.duration = 250
@@ -149,13 +148,13 @@ class CuteActivity : CircularRevealActivity() {
 
     override fun handleAnimations(visibility: Int, animation: Animation) {
 
-        titleTextView.setVisibility(visibility)
+        titleTextView.visibility = visibility
         titleTextView.startAnimation(animation)
-        questionTextView.setVisibility(visibility)
+        questionTextView.visibility = visibility
         questionTextView.startAnimation(animation)
-        chanceTextView.setVisibility(visibility)
+        chanceTextView.visibility = visibility
         chanceTextView.startAnimation(animation)
-        noChanceTextView.setVisibility(visibility)
+        noChanceTextView.visibility = visibility
         noChanceTextView.startAnimation(animation)
     }
 }

@@ -1,27 +1,28 @@
 package androidtitancom.cuteapp
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
+import android.preference.PreferenceManager
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import android.support.v4.app.ActivityOptionsCompat
-import kotlinx.android.synthetic.main.activity_entrance.*
+import android.support.v7.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_press_button.*
 
 
-class EntranceActivity : AppCompatActivity() {
+class PressButtonActivity : AppCompatActivity() {
+    companion object {
+        val HAS_BEEN_ONBOARDED_PREFERENCE = "entraceactivity.shouldonboardpreference"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entrance)
+        setContentView(R.layout.activity_press_button)
 
-        //request permission to send text messages
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),1);
+        showOnboardingDialog()
 
         //view
         toolbar.title = resources.getString(R.string.hey_you)
@@ -31,9 +32,21 @@ class EntranceActivity : AppCompatActivity() {
             newAnimationIntent(this, fab)
         }
 
+        settingsImageView.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this@PressButtonActivity)
+                    .setTitle(R.string.tech_stuff)
+                    .setMessage(R.string.eula)
+                    .setPositiveButton(R.string.ok, { dialog, _ ->
+                        dialog.dismiss()
+                    })
+            builder.create().show()
+
+        }
+
         //handling our animations
         val pulseAnimation : Animation = AnimationUtils.loadAnimation(this, R.anim.pulse)
-        val pulseAndFadeAnimation : Animation = AnimationUtils.loadAnimation(this, R.anim.fading_scale);
+        val pulseAndFadeAnimation : Animation = AnimationUtils.loadAnimation(this, R.anim.fading_scale)
 
         pulseAnimation.repeatCount = Animation.INFINITE
         pulseAndFadeAnimation.setAnimationListener(object : Animation.AnimationListener {
@@ -48,6 +61,20 @@ class EntranceActivity : AppCompatActivity() {
 
         fab.startAnimation(pulseAnimation)
         circleView.startAnimation(pulseAndFadeAnimation)
+    }
+
+    private fun showOnboardingDialog() {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val onboarded = sharedPreferences.getBoolean(HAS_BEEN_ONBOARDED_PREFERENCE, false)
+
+        //if first time entering the app show the dialog fragment
+        if (!onboarded) {
+            val onboardingFragment = OnboardingDialogFragment()
+            onboardingFragment.isCancelable = false
+            onboardingFragment.show(fragmentManager, getString(R.string.onboarding_fragment))
+
+            sharedPreferences.edit().putBoolean(HAS_BEEN_ONBOARDED_PREFERENCE, true).apply()
+        }
     }
 
     private fun newAnimationIntent(context : Context, view : View) {
