@@ -1,4 +1,4 @@
-package androidtitancom.cuteapp
+package androidtitancom.cuteapp.gethernumber
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_closing.*
 import kotlinx.android.synthetic.main.content_closing.*
 import android.os.Build
 import android.annotation.TargetApi
-
+import androidtitancom.cuteapp.R
 
 
 class ClosingActivity : AppCompatActivity() {

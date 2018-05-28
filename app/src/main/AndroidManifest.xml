@@ -13,36 +13,44 @@
         android:icon="@mipmap/ic_heart_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".PressButtonActivity"
+            android:name=".gethernumber.PressButtonActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CuteActivity"
-            android:label="@string/title_activity_cute"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PressButtonActivity" />
-        </activity>
-        <activity
-            android:name=".ClosingActivity"
-            android:label="@string/title_activity_closing"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CuteActivity" />
-        </activity>
-        <activity android:name=".login.EntranceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".gethernumber.CuteActivity"
+            android:label="@string/title_activity_cute"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".gethernumber.PressButtonActivity" />
+        </activity>
+        <activity
+            android:name=".gethernumber.ClosingActivity"
+            android:label="@string/title_activity_closing"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".gethernumber.CuteActivity" />
+        </activity>
+        <activity
+            android:name=".challenges.ComfortZoneActivity"
+            android:label="@string/title_activity_comfort_zone_challenge"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".challenges.ChallengeDetailActivity"
+            android:label="@string/title_activity_challenge_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

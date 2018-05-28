@@ -1,23 +1,15 @@
-package androidtitancom.cuteapp
+package androidtitancom.cuteapp.gethernumber
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.content.Context
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.support.v4.app.ActivityOptionsCompat
-import android.util.Log
 import android.view.View
 import android.view.ViewAnimationUtils
-import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.RelativeLayout
-import androidtitancom.cuteapp.CuteActivity.Companion.OPTION_EXTRA
-import kotlinx.android.synthetic.main.activity_cute.*
-import kotlinx.android.synthetic.main.content_cute.*
+import androidtitancom.cuteapp.R
 
 abstract class CircularRevealActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package androidtitancom.cuteapp
+package androidtitancom.cuteapp.gethernumber
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidtitancom.cuteapp.R
 import kotlinx.android.synthetic.main.activity_cute.*
 import kotlinx.android.synthetic.main.content_cute.*
 

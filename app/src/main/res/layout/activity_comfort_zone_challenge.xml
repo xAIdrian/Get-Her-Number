@@ -4,31 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androidtitancom.cuteapp.gethernumber.ClosingActivity">
-
-    <include layout="@layout/content_closing" />
-
-    <!-- ActionBar -->
+    android:fitsSystemWindows="true"
+    tools:context=".challenges.ComfortZoneActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        app:elevation="0dp">
+        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:contentInsetLeft="0dp"
-            android:contentInsetStart="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            android:background="@color/default_background">
-
-        </android.support.v7.widget.Toolbar>
-
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_comfort_zone_challenge" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>
