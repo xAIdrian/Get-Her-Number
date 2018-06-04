@@ -8,15 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidtitancom.cuteapp.R
 
-
-import androidtitancom.cuteapp.challenges.ChallengeFragment.OnListFragmentInteractionListener
 import androidtitancom.cuteapp.model.Challenge
 
 import kotlinx.android.synthetic.main.fragment_challenge_list_item.view.*
 
-class ChallengeAdapter(
+class ChallengeListAdapter(
         private val mValues: List<Challenge>,
-        private val mListener: OnListFragmentInteractionListener?) : RecyclerView.Adapter<ChallengeAdapter.ViewHolder>() {
+        private val mListener: onAdapterClickListener?) : RecyclerView.Adapter<ChallengeListAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
 
@@ -25,7 +23,7 @@ class ChallengeAdapter(
             val item = v.tag as Challenge
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
+            mListener?.onChallengeSelected(item)
         }
     }
 

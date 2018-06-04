@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/challenge_fragment"
-        android:name="androidtitancom.cuteapp.challenges.ChallengeFragment"
+        android:name="androidtitancom.cuteapp.challenges.ChallengeListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

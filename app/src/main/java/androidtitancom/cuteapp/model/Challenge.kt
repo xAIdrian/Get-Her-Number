@@ -23,6 +23,15 @@ data class Challenge (var title : String,
         return 0
     }
 
+    companion object CREATOR : Parcelable.Creator<Challenge> {
+        override fun createFromParcel(parcel: Parcel): Challenge {
+            return Challenge(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Challenge?> {
+            return arrayOfNulls(size)
+        }
+    }
     /*
     public static final Creator<Rate> CREATOR = new Creator<Rate>() {
         @Override
@@ -36,13 +45,4 @@ data class Challenge (var title : String,
         }
     };
      */
-    companion object CREATOR : Parcelable.Creator<Challenge> {
-        override fun createFromParcel(parcel: Parcel): Challenge {
-            return Challenge(parcel)
-        }
-
-        override fun newArray(size: Int): Array<Challenge?> {
-            return arrayOfNulls(size)
-        }
-    }
 }
