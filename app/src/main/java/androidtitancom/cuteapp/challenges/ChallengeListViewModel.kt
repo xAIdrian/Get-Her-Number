@@ -12,7 +12,7 @@ import androidtitancom.cuteapp.model.Challenge
 class ChallengeListViewModel(application:Application): AndroidViewModel(application) {
 
     companion object {
-        private const val CHALLENGE_EXTRA = "challengelistviewmodel_challenge_extra"
+        const val CHALLENGE_EXTRA = "challengelistviewmodel_challenge_extra"
     }
 
     private var staticChallenges = buildStaticChallenges()

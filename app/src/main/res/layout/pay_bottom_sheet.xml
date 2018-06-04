@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="pay_status"
+            type="androidtitancom.cuteapp.challenges.model.PayStatus" />
+    </data>
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/defaultt">
+
+    <TextView
+        android:id="@+id/on_the_line_title_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/pay_bottom_sheet_title"/>
+
+</android.support.constraint.ConstraintLayout>
+</layout>

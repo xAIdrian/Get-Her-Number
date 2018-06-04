@@ -5,11 +5,13 @@ import android.os.PersistableBundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import androidtitancom.cuteapp.R
+import androidtitancom.cuteapp.challenges.ChallengeListViewModel.Companion.CHALLENGE_EXTRA
 import androidtitancom.cuteapp.model.Challenge
 import kotlinx.android.synthetic.main.activity_challenge_detail.*
 
 class ChallengeDetailActivity : AppCompatActivity() {
 
+    //todo BOTTOM SHEET TO PAY https://www.androidhive.info/2017/12/android-working-with-bottom-sheet/
     companion object {
         const val CHALLENGE_DETAIL_EXTRA = "challenge_detail_string"
     }
@@ -28,9 +30,11 @@ class ChallengeDetailActivity : AppCompatActivity() {
             mapExtra(savedInstanceState.getParcelable(CHALLENGE_DETAIL_EXTRA))
         } else {
             intent.extras?.let {
-                mapExtra(intent.extras.getParcelable(CHALLENGE_DETAIL_EXTRA))
+                mapExtra(intent.extras.getParcelable(CHALLENGE_EXTRA))
             }
         }
+
+        toolbar_layout.title = challengeTitle
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

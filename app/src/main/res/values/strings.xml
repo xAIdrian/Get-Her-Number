@@ -63,4 +63,5 @@
     <string name="title_activity_comfort_zone_challenge">ComfortZoneChallengeActivity</string>
 
     <string name="title_activity_challenge_detail">ChallengeDetailActivity</string>
+    <string name="pay_bottom_sheet_title">You Don\'t Have Anything On The Line</string>
 </resources>
