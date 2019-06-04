@@ -1,7 +1,7 @@
-<img width="216" alt="screen shot 2018-02-22 at 2 25 54 pm" src="https://user-images.githubusercontent.com/7444521/36559551-564b69a8-17dc-11e8-9068-f7e0cd26c247.png">
-
 # Get Her Number
 Looking for a date? Let Uncle Adrian lend a hand.
+
+![Screenshot_20190604-103207_Nova Launcher 1](https://user-images.githubusercontent.com/7444521/58900651-677d2200-86b4-11e9-82aa-82563688a196.jpg)
 
 <a href="https://play.google.com/store/apps/details?id=androidtitancom.cuteapp">
   <img alt="Get it on Google Play"
