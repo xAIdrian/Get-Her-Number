@@ -86,14 +86,7 @@ class CuteActivity : CircularRevealActivity() {
         optionAdapter.add(getString(R.string.adventurous))
         optionAdapter.add(getString(R.string.chill))
 
-        builder.setNegativeButton(getString(R.string.picker_cancel), { dialog, _ ->
-            run {
-                dialog.dismiss()
-                this.finish()
-            }
-        })
-
-        builder.setAdapter(optionAdapter, { dialog, which ->
+        builder.setAdapter(optionAdapter) { dialog, which ->
             run {
                 dialog.dismiss()
                 //this will be stored to know who selected what
@@ -102,7 +95,7 @@ class CuteActivity : CircularRevealActivity() {
 
                 exitReveal(rootRelativeLayout)
             }
-        })
+        }
         val dialog = builder.create()
         dialog.setCanceledOnTouchOutside(false)
         dialog.setCancelable(false)

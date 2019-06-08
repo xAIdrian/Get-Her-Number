@@ -155,7 +155,7 @@
                 android:padding="@dimen/defaultt"
                 android:layout_margin="@dimen/doubleDefault"
                 android:text="@string/next"
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>

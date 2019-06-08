@@ -35,8 +35,8 @@ class ClosingActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),1)
 
         //view
-        toolbar.title = resources.getString(R.string.welcome_back)
-        toolbar.setTitleTextColor(getColor(R.color.colorAccent))
+//        toolbar.title = resources.getString(R.string.welcome_back)
+//        toolbar.setTitleTextColor(getColor(R.color.colorAccent))
 
         val extras = intent.extras
         val optionSelected = extras?.getString(CuteActivity.OPTION_EXTRA)
@@ -87,11 +87,21 @@ class ClosingActivity : AppCompatActivity() {
         })
 
         sendTextView.setOnClickListener {
-            if (!messageSent) {
-                sendTextMessage(optionSelected)
-            } else {
-                Toast.makeText(this, R.string.sent, Toast.LENGTH_SHORT).show()
-            }
+
+                val sendName = nameEditText.text.toString()
+                val sendNumber = numberEditText.text.toString()
+                val properOption = getProperOption(optionSelected)
+
+                nameTextInputLayout.visibility = View.GONE
+                numberTextInputLayout.visibility = View.GONE
+                sendTextView.text = "Sweet"
+                sendTextView.setOnClickListener(null)
+
+                congrats.text = "Congrats ${ if (!sendName.isBlank()) sendName  else "Beautiful Stranger" }!  You\'re going to ${getProperOption(optionSelected)} with this guy! Get Excited!"
+                congrats.visibility = View.VISIBLE
+
+                //sendTextMessage(optionSelected)
+
         }
 
         returnImageView.setOnClickListener {
@@ -108,10 +118,9 @@ class ClosingActivity : AppCompatActivity() {
             val smsManager = SmsManager.getDefault()
 
             smsManager.sendTextMessage(sendNumber, null,
-                    "Congrats ${ if (!sendName.isBlank()) sendName  else "Beautiful Stranger" }!  You\'re going to $properOption with this guy! Get Excited!",
+                    "",
                     null, null)
 
-            messageSent = true
             Toast.makeText(this, R.string.success, Toast.LENGTH_SHORT).show()
 
         } catch (e: Exception) {

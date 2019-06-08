@@ -30,16 +30,16 @@
     <string name="welcome_back">I think he likes me</string>
     <string name="send">Send!</string>
     <string name="failed">Text Message Failed … Sorry</string>
-    <string name="lies">Don\'t lie to yourself.  He\'s hot!</string>
+    <string name="lies">Don\'t lie to yourself.  He\'s cute.</string>
     <string name="success">Text Message Sent … Yay!</string>
-    <string name="sent">Text message already sent.  Please restartApp.</string>
+    <string name="sent">Text message already sent.  Please restart.</string>
 
     <string name="onboarding_title">So why\'s this app so cute?</string>
-    <string name="onboarding"><![CDATA[Welcome to <b>Get Her Number</b> my good man!  Use this app while you\'re having a fun and flirtatious conversation with a cute girl (this will give you the best results).\nHere\'s how it works:]]></string>
+    <string name="onboarding"><![CDATA[Welcome to <b>Get Her Number</b>!  Use this app while you\'re having a fun and flirtatious conversation with that cute girl or guy (this will give you the best results).\nHere\'s how it works:]]></string>
     <string name="step_one">Bring up mobile apps in coversation \nHint: \"So have you downloaded any cool apps lately?\"</string>
-    <string name="step_two">Open this app on your phone, hand it to the cutie standing in front of you, and tell her to press the button.</string>
-    <string name="step_three">Sit back while she laughs and gives you her phone number!</string>
-    <string name="disclaimer"><![CDATA[<b>Disclaimer:</b> We do not guarantee she will give you her number or give you a valid number.  This app is meant to be a tool in the confident and charismatic man's tool belt.]]></string>
+    <string name="step_two">Open this app on your phone, hand it to the cutie standing in front of you, and tell \'em to press the button.</string>
+    <string name="step_three">Act preoccupied while they laughs and give you the phone number!</string>
+    <string name="disclaimer"><![CDATA[<b>Disclaimer:</b> We do not guarantee results or fairy tale love.  This app is meant to be a tool in the confident man or woman's tool belt.]]></string>
     <string name="next">NEXT</string>
     <string name="permissions">This app will send her a cute text message once a phone number is entered.  We need your permission to do this.</string>
     <string name="onboarding_fragment">OnboardingDialogFragment</string>
